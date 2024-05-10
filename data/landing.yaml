@@ -1,0 +1,44 @@
+# Hero
+hero:   
+  enable: true
+  weight: 10
+  template: hero
+
+  backgroundImage:
+    path: "images/templates/hero"
+    filename:
+      desktop: "gradient-desktop.webp"
+      mobile: "gradient-mobile.webp"
+
+  badge:
+    text: v0.1.0
+    color: primary # primary, secondary, success, danger, warning, info, light, dark
+    pill: true # boolean
+    soft: true # boolean
+
+  # titleLogo:
+  #   path: "images/logos"
+  #   filename: "title_logo.png"
+  #   alt: "Lotus Docs Logo"
+  #   height: 80px
+
+  title: "ArtisianDSP"
+  subtitle: A digital guitar effects suite.
+
+  image:
+    path: "img/modelling" # path to image under configured assets directory. default 'images'
+    filename: "comp.webp" # filename of your hero image (including file extension)
+    alt: "Lotus Docs Screenshot" # Optional but recommended
+    boxShadow: true # default 'false' (excludes .svg images)
+    rounded: true # round the image corners? default 'false' (excludes .svg images)
+
+  ctaButton:
+    icon: menu_book
+    btnText: "See Documentation"
+    url: "/docs/documentationp1"
+  cta2Button:
+    icon: code
+    btnText: "Github Repository"
+    url: "https://github.com/Haito4/ArtisianDSP"
+
+  info: ""

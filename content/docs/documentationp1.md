@@ -12,7 +12,7 @@ scrollSpy: true
 ----
 # **1. Defining And Understanding The Problem**
 ----
-## **---Defining the problem---**
+## **Defining the problem**
 
 ### **Identifying the problem**
 
@@ -197,7 +197,7 @@ creation of the software solution, the end result stands to be
 attainable.
 
 ----
-## **---Design Specifications---**
+## **Design Specifications**
 
 ### **The Developer's Perspective**
 
@@ -332,7 +332,7 @@ Compatibility requirements that will be considered include operating
 system, CPU, and graphics processing units.
 
 
-## **---Modelling---**
+## **Modelling**
 
 ### IPO Charts
 
@@ -388,7 +388,7 @@ system, CPU, and graphics processing units.
 
 ----
 
-## **---Communication---**
+## **Communication**
 
 ### Scheduling -- GANTT chart
 
@@ -470,7 +470,7 @@ Time: 12:47pm - 12:51pm
 
 # **2. Planning and Design of Software Solutions**
 
-## **---Algorithms---**
+## **Algorithms**
 
 ### Noise Gate
 
@@ -519,7 +519,7 @@ WHILE True:
 ENDWHILE
 END NoiseGate
 ```
-
+----
 ![Noise Gate Flowchart](img/modelling/ngflowchart.png)
 
 

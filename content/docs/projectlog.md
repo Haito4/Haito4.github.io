@@ -13,7 +13,7 @@ scrollSpy: true
 
 
 
-## Part 1
+# Part 1
 ## 24/10/23
 
 
@@ -138,6 +138,68 @@ Finished data dictionary.
 ## 14/12/23
 Finished all scenes in the storyboard and arranged them into a single image. Finished the pseudocode for IR, overdrive, amplifier, and reverb algorithms.
 
-## Part 2
+----
+# Part 2
 
+## 2/01/24
+- Added juce dsp library
+- Bound sliders to dsp parameters
+- Fixed negative quality slider which was causing a 12dB crack. Did this by changing the minimum value for Q from -24.f to 0.1f
+- Also adjusted skewfactor for frequency related parameters
 
+----
+## 6/01/24
+- Connected parameters to a butterworth filter to allow a low cut frequency interaction
+- Adjust how the chain settings are defined for lowcut and highcut slope
+
+----
+## 9/01/24
+- Refactored code into void functions to avoid repetition of code for each of the two audio channels.
+- Finalised EQ DSP, now all parameters control their own DSP function.
+
+----
+## 14/01/24
+- Created custom GUI sliders to control each parameter.
+
+----
+## 18/01/24: Starting The Actual Project
+Created Artisian DSP plugin project.
+Worked on creating a structure that allows for different GUI scenes to contain different contents while also being selectable via user interactable buttons.
+### Scene 1
+{{ $image = resources.Get "img/log2/feb/18-01-24.png" }}
+
+![](img/log2/feb/18-01-24.png)
+
+### Scene 2
+
+![](img/log2/feb/2024-01-18.png)
+
+The scripts are structured so that each scene has its own c++ file.
+
+![](img/log2/feb/2024-01-18n2.png)
+
+MultiSceneComponent is the manager of the scene1 and scene2 component scripts, which changes the visibility of each scene as the other is selected.
+This function is then called from the PluginEditor, which actually draws it to the plugin's GUI.
+
+![](img/log2/feb/2024-01-18n3.png)
+
+I will have to add more scenes for each processor in the final version, but for now, this test works with no errors, making it a good spot for an emergency rollback should everything break.
+
+----
+## 19/01/24
+Today I created the rest of the scenes to be used in the final version for each effect.
+Each scene has text in the centre displaying the name of the effect.
+
+![](img/log2/feb/2024-01-19.png)
+
+In the scene manager script, there is a lot of repetition, as each scene does the same thing - showing itself while hiding the others.
+
+![](img/log2/feb/2024-01-19n2.png)
+
+![](img/log2/feb/2024-01-19n3.png)
+
+Later I will find a way to optimise this to minimise the repeated code, but for now it works.
+
+I also updated the names for each script. Rather than Scene1Component, Scene2Component, etc, each component has the name of its function before the number. This is just to make navigating and calling upon each function easier.
+
+![](img/log2/feb/2024-01-19n4.png)
