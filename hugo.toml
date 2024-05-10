@@ -20,3 +20,9 @@ title = 'Artisian DSP Documentation'
 [markup.tableOfContents]
     endLevel = 6
     startLevel = 1
+
+[[menu.primary]]
+    name  = "Docs"
+    url = "/docs/"
+    identifier = "docs"
+    weight = 10
