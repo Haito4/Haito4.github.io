@@ -63,11 +63,14 @@ If so, collect and consolidate the items config from each enabled instance
         
         
 <!--        <script src="/js/medium-zoom.js" defer></script>-->
-<!--        <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" defer></script>-->
+       
         <script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js" defer></script>
-        <script src="/js/zoom-image/placeholders.js" defer></script>
-        <script src="/js/zoom-image/index.js" defer></script>
         
+<!--        <script src="/js/zoom-image/placeholders.js" defer></script>-->
+        <script src="{{ .Site.BaseURL }}js/zoom-image/placeholders.js" defer></script>
+        
+<!--        <script src="/js/zoom-image/index.js" defer></script>-->
+        <script src="{{ .Site.BaseURL }}js/zoom-image/index.js" defer></script>
 
     </body>
     
