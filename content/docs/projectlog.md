@@ -38,7 +38,6 @@ Cloned latest JUCE develop code, installed xcode 13.2.
 
 Then built the projuicer application with xcode.
 
-
 ![image2](img/log/image2.png)
 
 Built an empty standalone plugin application.
@@ -50,9 +49,11 @@ Created local git repository for the project folder with fork application then p
 ![image4](img/log/image4.png)
 
 Created a readme file online in the github repository then pulled the change to the local folder.
+
 ![image5](img/log/image5.png)
 
 ![image6](img/log/image6.png)
+
 Readme file was added, so it worked.
 
 ----
@@ -67,6 +68,7 @@ To start with, it is blank, so in PluginProcessor.cpp I defined the layout of ea
 The first 6 parameters use a normalisable range, which allows you to select any value in a specified range.
 
 ![image8](img/log/image8.png)
+
 ![image9](img/log/image9.png)
 
 The last two parameters use a choice within an array, instead of a value in a range.
@@ -74,11 +76,15 @@ The last two parameters use a choice within an array, instead of a value in a ra
 Defined stringArray to provide the options, then put it into the AudioParameterChoice definition of LowCut Slope and HighCut Slope.
 
 Since I have not created any GUI yet, if I ran it now nothing would show except for the blank hello world template that is preloaded.
+
 ![image10](img/log/image10.png)
+
 Rather than using SimpleEQAudioProcessorEditor (which will eventually run the GUI), I replaced it with GenericAudioProcessorEditor. This should show all available parameters rather than the GUI (which currently doesn’t exist).
 
 When I tried to build and run to see if the parameters would show, the text output showed “JUCE assertion failure”. This prevented the application from running despite the fact that the build succeeded.
+
 ![image11](img/log/image11.png)
+
 The output said the source is in juce_AudioProcessor.cpp at line 442.
 
 ![image12](img/log/image12.png)
@@ -90,8 +96,11 @@ Then I looked closer and saw that jassertfalse is within an instance of std:call
 I figured that if I could just remove it from the expression’s output, but keep the structure, it would work without creating more errors beneath from breaking the structure of the framework.
 
 So, I created a copy of the original line in comment form, then purely removed the jassertfalse.
+
 ![image13](img/log/image13.png)
+
 After compiling and running this time, it finally worked.
+
 ![image14](img/log/image14.png)
 
 All the parameters that were defined before now show up in their appropriate representation, at their default value that was set.
@@ -128,6 +137,7 @@ Expanded on relevance to the user’s hardware environment.
 Built standard noise gate plugin as VST3 and tested with audio file in an audio plugin host.
 
 The threshold and alpha settings were adjustable, and functionally worked.
+
 ![image18](img/log/image18.png)
 
 ----
@@ -235,7 +245,6 @@ I also updated the names for each script. Rather than Scene1Component, Scene2Com
 ## 22/01/24
 Began working on the overdrive. Started by adding the knobs to the scene. Need to fix.
 
-
 update: tried to fix it but it is still brokey.
 getting juce assert error
 JUCE Message Thread (1): EXC_BREAKPOINT (code=EXC_I386_BPT, subcode=0x0)
@@ -246,10 +255,12 @@ This is probably due to the getState function or the parameters.
 
 ## 23/01/24
 Added these changes to a new branch called method b and checked out back to the previous version. Basically, I'm starting the overdrive thing again.
+
 ![](img/log2/feb/2024-01-23n1.png)
 
 Update:
 Well it works now for some reason. Test knob is there.
+
 ![](img/log2/feb/2024-01-23n2.png)
 
 This is all it is. I feel stupid for trying to salvage 5 year old code using outdated JUCE functions.
@@ -257,14 +268,16 @@ This is all it is. I feel stupid for trying to salvage 5 year old code using out
 ![](img/log2/feb/2024-01-23n3.png)
 
 Created the other two knobs for the overdrive. I will fine tune the position and size later, but for now they work and show up on the overdrive scene in almost the centre.
+
 ![](img/log2/feb/2024-01-23n4copy.png)
 
 Position of knobs is x of last + 90 at 270 y.
-![](img/log2/feb/2024-01-23n6.png)
 
+![](img/log2/feb/2024-01-23n6.png)
 
 Made a parameter layout that i tried to link to the knobs with no luck. Deleted all of that as it was creating error after error.
 Here is what I will keep.
+
 ![](img/log2/feb/2024-01-23n7.png)
 
 ----
@@ -311,6 +324,7 @@ This function is called whenever the combobox (called resizenator) is adjusted. 
 ![](img/log2/feb/2024-02-20n1.png)
 
 ![](img/log2/feb/2024-02-20n2.png)
+
 After updateResolution is called, the canvas size is readjusted using the newly updated width and height variables.
 
 ![](img/log2/feb/2024-02-20n3.png)
@@ -431,7 +445,9 @@ And by doing that, I could finally change the variable.
 Today I implemented an Audio Value TreeState for the processor. It's basically a list that can contains all of the program's processors, and stores their values within a file. Using this will make preset management much simpler when when I need to do that.
 
 In the processor, I add parameters within the createParameters function with params.add (parameter id, parameter name, min value, max value, default value), and then params is returned into the apvts in its declaration the constructor.
+
 ![](img/log2/march/2024-03-12n1.png)
+
 The current parameters in there are for the noise gate.
 
 To start, I wanted to create a knob that could control the threshold, so in my gate script I created a slider (thresholdSlider) and set its values to match the parameter.
@@ -459,6 +475,7 @@ It works alright and the threshold slider reacts how it should when audio is abo
 
 ## 19/03/24: I am terribly sad
 Trying to implement the attack and release time, but my xcode doesn't seem to like exponential functions, which I kind of need. I tried fixing it, but now I broke everything. Now it won't launch.
+
 ![](img/log2/march/2024-03-19.png)
 
 ----
@@ -822,7 +839,6 @@ Which outputs:
 ![](img/log2/may/mishuggah.png)
 
 But if you do the same thing with a video
-
 ```markdown
 ![](img/log2/may/mishuggah2.mp4) 
 ```
