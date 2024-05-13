@@ -16,6 +16,7 @@ title = 'Artisian DSP Documentation'
     breadcrumbs = true
     scrollSpy = true
     lastMod = true
+    extLinkNewTab = true
 
 [markup.tableOfContents]
     endLevel = 6

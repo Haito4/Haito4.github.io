@@ -6,7 +6,7 @@ icon: "article"
 date: 2023-11-24 12:00:00
 date: "2024-05-10T09:23:34+10:00"
 lastmod: "2024-05-10T09:23:34+10:00"
-draft: true
+draft: false
 toc: true
 scrollSpy: true
 ---
@@ -17,7 +17,12 @@ scrollSpy: true
 ## 24/10/23
 
 
-![image1](img/log/image1.png)
+<!--![image1](img/log/image1.png)-->
+
+
+{{< mediumzoom src="/img/log/image1.png" width="70%" id="zoom-margin" class="medium-zoom-image" loading="lazy" >}}
+
+
 
 Downloaded and unzipped juce framework folder.
 
@@ -33,6 +38,7 @@ Continued researching the process of a phase vocoder. Began installing c++ requi
 Cloned latest JUCE develop code, installed xcode 13.2.
 
 Then built the projuicer application with xcode.
+
 
 ![image2](img/log/image2.png)
 
