@@ -753,7 +753,7 @@ And at the end of the processblock I run the data through the filter if usingIR 
 
 Here's what it sounds like:
 
-{{< video "/img/IR-loader.mp4" "IR Testing" "player-wrapper-4">}}
+{{< video "/img/IRloader.mp4" "testIR" "player-wrapper-4">}}
 
 Theres an obvious drop in volume though, so I'll have to boost the gain a little bit afterwards
 
