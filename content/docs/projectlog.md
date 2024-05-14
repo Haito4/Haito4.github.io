@@ -15,6 +15,12 @@ scrollSpy: true
 
 ## 24/10/23
 
+{{ $image := resources.Get "/img/log/image1.png" }}
+{{ $image.Crop "600x400 TopLeft" }}
+
+
+....
+
 ![image1](/img/log/image1.png)
 
 Downloaded and unzipped juce framework folder.
