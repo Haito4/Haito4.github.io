@@ -17,53 +17,125 @@ scrollSpy: true
 
 ## **Interface Design**
 
-In the designing of the interface for my effects processor, I needed to ensure that all of the necessary data was provided to the user in an easy-to-read form.
-
-
 ### **The Design of Individual Screens**
 
 #### Identifying Data Required
 
 Describes How System will store/manipulate this data
 
-#### the design of effective user friendly interface
+In the designing of the interface for my effects processor, I needed to ensure that all of the necessary data was provided to the user in an easy-to-read form.
+
+#### The Design of Effective User Friendly Interface
 
 During the development of the graphics user interface (GUI), I proceeded with a focus on the recreation of the source material - my reference pedals and amplifiers. This was to ensure that each point in the signal chain was clearly diffrentiable from each other to allow the solution to simpler to understand and hence easier to use.
 
-#### help screens (ensuring it meets the intended audience)
-...
+Takes into account the ergonomic issues of software design (e.g. consistency, alignment, white space, use of colour and font appropriately, correct use of screen elements, use of standards).
 
-#### design constructed addresses the legal, social and ethical issues identified in Section I.
-...
+#### help screens (ensuring it meets the intended audience)
+To ensure an accessible experience for all users, I needed to include a help screen, explaining how to use the different features of the audio plugin, and what they do.
+
+- Tooltips
+- Worded examples
+- Example Presets
+- Popup video tooltips
+
+
+#### Level, Social, Ethical Issues
+
+design constructed addresses the legal, social and ethical issues identified in Section I.
 
 ----
 
 ## **Program Development & Techniques**
 
-### **Code generation: structured approach (one logical task per subroutine), debugging output statements, elegance of solution, comments, flags, stubs.**
+### **Code generation**
+(structured approach)
 
 I approached code generation in a structured manner, where each subroutine possesses one logical task.
 
+one logical task per subroutine
 
-### **Process of detecting and correcting errors: (syntax, logic, peer checking, desk checking, use of expected output, runtime errors.**
+debugging output statements
+
+elegance of solution
+
+comments
+
+flags 
+
+stubs
+
+
+### **Process of detecting and correcting errors**
+Throughout the development of my software solution, I took various steps to detect and correct errors in the source code. By executing these processes, I could ensure that the reliability of the code and thus the stability of the software solution was to a high standard.
+
+#### Syntax Checking
 ...
 
-### **The use of software debugging tools**
-resetting variable contents, program traces, single line stepping.
+#### Logic
+...
+
+#### Peer Checking
+...
+
+#### Desk Checking
+...
+
+#### Use of Expected Output
+...
+
+#### Runtime Errors
+...
+
+### **The Use of Software Debugging Tools**
+intro paragraph
+
+#### Resetting Variable Contents
+...
+
+#### Program Traces
+...
+
+#### Single Line Stepping
+...
 
 ----
 
 ## **Documentation**
-
-
-
 ### **User documentation**
+Intro Paragraph
 
-installation guide, user manual, tutorial, online help.
+#### Installation Guide
+...
+
+#### User Manual
+...
+
+#### Tutorials
+...
+
+#### Online Help
+...
 
 ### **Technical documentation**
+intro paragraph
 
-source code, updated and/or additional algorithms, updated data dictionary and the use of intrinsic documentation.
+#### source code documentation
+lorem ipsum
+
+#### Comments
+...
+
+#### Intrinsic Documentation
+...
+
+#### White Space
+for readability
+
+#### Data dictionary (updated)
+...
+
+----
 
 ## **Communication**
 ...
