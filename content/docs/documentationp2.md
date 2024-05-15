@@ -156,3 +156,29 @@ personal progress diary completed throughout the project.
 
 ### **Updated and completed GANTT Chart.**
 ...
+
+----
+# 4. **Testing and Evaluation of Software Solutions**
+
+## **Testing the Software Solution**
+### Comparing the solution with the original design specifications
+...
+
+### Levels of testing (unit module, program, system) are described and evaluated.
+...
+
+### The use of live test data to test the complete solution: larger file sizes, mix of transaction types,
+response time, interfaces between modules
+
+----
+## **Reporting on the testing process**
+Apply appropriate development methods to solve software problems by providing:
+Documentation and communication of the test data/results and output produced. (Test requirements, test plan, test data and expected results, test results, and recommendations of how the solve the problem).
+
+- Creating test data
+
+- Test plans
+
+- Test results
+
+- recommendations of how the solve the problem
