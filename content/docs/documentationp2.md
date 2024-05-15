@@ -16,9 +16,7 @@ scrollSpy: true
 ----
 
 ## **Interface Design**
-
 ### **The Design of Individual Screens**
-
 #### Identifying Data Required
 
 Describes How System will store/manipulate this data
@@ -47,7 +45,6 @@ design constructed addresses the legal, social and ethical issues identified in 
 ----
 
 ## **Program Development & Techniques**
-
 ### **Code generation**
 (structured approach)
 
@@ -140,11 +137,33 @@ for readability
 ## **Communication**
 ...
 
-### **Agenda for progress meeting **
+### **Agenda for progress meeting**
+#### Meeting 3
 
-(work completed to date, problems encountered, questions etc.)
+Date: 16/05/24
 
-### **Minutes of progress meeting**
+Time: 
+
+**Agenda**
+
+- Show current plugin prototype with DI audio files
+- Go through the website and current state of documentation
+
+### Minutes of progress meeting
+#### Meeting 3
+
+Date: 16/05/24
+
+Time: 
+
+**Agenda**
+
+- Show current plugin prototype with DI audio files
+- Go through the website and current state of documentation
+
+✓
+
+**Feedback**
 
 ...
 
@@ -152,23 +171,57 @@ for readability
 
 [Click here](projectlog)
 
-personal progress diary completed throughout the project.
 
 ### **Updated and completed GANTT Chart.**
 ...
 
 ----
 # 4. **Testing and Evaluation of Software Solutions**
-
 ## **Testing the Software Solution**
 ### Comparing the solution with the original design specifications
 ...
 
 ### Levels of testing (unit module, program, system) are described and evaluated.
+Intro paragraph
+
+#### Unit Testing
 ...
 
+#### Module Testing
+...
+
+#### System Testing
+...
+
+
 ### The use of live test data to test the complete solution: larger file sizes, mix of transaction types,
-response time, interfaces between modules
+Intro Paragraph
+
+#### Large File Sizes
+...
+
+
+#### Mix of file types
+...
+
+
+#### Response Times
+...
+
+
+#### Volume Data (load testing)
+...
+
+
+#### Interfaces Between Modules and Programs
+...
+
+
+#### Comparison of Actual wit Expected Results
+...
+
+
+
 
 ----
 ## **Reporting on the testing process**
