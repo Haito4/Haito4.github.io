@@ -15,7 +15,10 @@ scrollSpy: true
 
 ## 24/10/23
 
-![image1](/img/log/image1.png)
+
+{{< img src="img/log/image1.png" alt="image no1" resize="600">}}
+
+
 
 Downloaded and unzipped juce framework folder.
 
@@ -884,4 +887,19 @@ It was breaking when I had two videos on the same page, so I added another field
 Then they embedded properly
 
 ![](img/log2/may/sitebrokey.png)
+
+
+
+<!---->
+<!--## 15/05/24-->
+<!--Started adding the part 3 and 4 headings to a new markdown file for the documentation.-->
+<!---->
+<!---->
+<!--Made a file chooser for the ir loader. When the button is clicked, it opens a file chooser and assigns the selected wav file to a variable. From there it's passed into the impulse response loader in the processor script.-->
+
+<!--![[Screen Shot 2024-05-15 at 5.35.08 pm.png]]-->
+<!---->
+<!---->
+<!--![[irSelectorWorking.mov]]-->
+
 

@@ -217,7 +217,7 @@ Intro Paragraph
 ...
 
 
-#### Comparison of Actual wit Expected Results
+#### Comparison of Actual with Expected Results
 ...
 
 
