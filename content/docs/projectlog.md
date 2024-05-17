@@ -884,20 +884,43 @@ It was breaking when I had two videos on the same page, so I added another field
 
 Then they embedded properly
 
-![](img/log2/may/sitebrokey.png)
+![](img/log2/may/siteworkey.png)
+
+----
+
+## 15/05/24
+Started adding the part 3 and 4 headings to a new markdown file for the documentation.
 
 
+Made a file chooser for the ir loader. When the button is clicked, it opens a file chooser and assigns the selected wav file to a variable. From there it's passed into the impulse response loader in the processor script.
 
-<!---->
-<!--## 15/05/24-->
-<!--Started adding the part 3 and 4 headings to a new markdown file for the documentation.-->
-<!---->
-<!---->
-<!--Made a file chooser for the ir loader. When the button is clicked, it opens a file chooser and assigns the selected wav file to a variable. From there it's passed into the impulse response loader in the processor script.-->
+![](img/log2/may/2024-05-15n1.png)
 
-<!--![[Screen Shot 2024-05-15 at 5.35.08 pm.png]]-->
-<!---->
-<!---->
-<!--![[irSelectorWorking.mov]]-->
+
+![[irSelectorWorking.mov]]
+
+{{< video "/img/irSelectorWorking.mp4" "IR File Chooser" "player-wrapper-7">}}
+
+----
+
+## 16/05/24
+Had 3rd progress meeting.
+
+----
+
+## 17/05/24
+Made a hugo shortcode script to resize and optimise my images
+
+![](img/log2/may/2024-05-17n1.png)
+
+Removed the default home page by auto redirecting to the documentation.
+
+![](img/log2/may/2024-05-17n2.png)
+
+I also implemented a waveshaper for the preamp stage of the amplifier.
+
+![](img/log2/may/2024-05-17n3.png)
+
+
 
 
