@@ -896,9 +896,6 @@ Made a file chooser for the ir loader. When the button is clicked, it opens a fi
 
 ![](img/log2/may/2024-05-15n1.png)
 
-
-![[irSelectorWorking.mov]]
-
 {{< video "/img/irSelectorWorking.mp4" "IR File Chooser" "player-wrapper-7">}}
 
 ----
