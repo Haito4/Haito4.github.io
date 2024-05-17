@@ -43,17 +43,17 @@ Then built the projuicer application with xcode.
 
 Built an empty standalone plugin application.
 
-![image3](img/log/image3.png)
+{{< img src="img/log/image3.png" alt="image3" resize="600">}}
 
 Created local git repository for the project folder with fork application then pushed source code to github repository for an online backup.
 
-![image4](img/log/image4.png)
+{{< img src="img/log/image4.png" alt="image4" resize="600">}}
 
 Created a readme file online in the github repository then pulled the change to the local folder.
 
-![image5](img/log/image5.png)
+{{< img src="img/log/image5.png" alt="image5" resize="600">}}
 
-![image6](img/log/image6.png)
+{{< img src="img/log/image6.png" alt="image6" resize="600">}}
 
 Readme file was added, so it worked.
 
