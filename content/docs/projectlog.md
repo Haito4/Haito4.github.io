@@ -12,11 +12,9 @@ scrollSpy: true
 ---
 
 # Part 1
-
 ## 24/10/23
 
-
-{{< img src="img/log/image1.png" alt="image no1" resize="600">}}
+{{< img src="img/log/image1.png" alt="image1" resize="600">}}
 
 
 
@@ -41,7 +39,7 @@ Cloned latest JUCE develop code, installed xcode 13.2.
 
 Then built the projuicer application with xcode.
 
-![image2](img/log/image2.png)
+{{< img src="img/log/image2.png" alt="image2" resize="600">}}
 
 Built an empty standalone plugin application.
 
