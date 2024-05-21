@@ -59,8 +59,10 @@ Readme file was added, so it worked.
 
 ----
 
-## 14/11/23
-Following the framework structure, I created a parameter layout to be communicated to the application.
+## 14/11/23: Starting Practice Project
+Started following a tutorial on making an EQ plugin to learn the framework. 
+
+Following the framework structure, I created a parameter layout to be given to the application.
 
 ![image7](img/log/image7.png)
 
@@ -223,7 +225,7 @@ I will have to add more scenes for each processor in the final version, but for 
 
 ----
 
-## 19/01/24
+## 19/01/24: All Scenes
 Today I created the rest of the scenes to be used in the final version for each effect.
 Each scene has text in the centre displaying the name of the effect.
 
@@ -292,7 +294,7 @@ I will need to change the size and link it to the parameter, but for now I am gl
 
 ----
 
-## 16/04/24
+## 16/04/24: Input Gain Slider
 Finished the implementation of the input gain slider. It has a range of -15.0f to 15.0f. It returns a float value that is converted to decibels and then multiplied by the current sample from the buffer to either increase or attenuate the volume of the incoming signal.
 
 ![](img/log2/feb/2024-02-16n1.png)
@@ -303,7 +305,7 @@ Finished the implementation of the input gain slider. It has a range of -15.0f t
 
 ![](img/log2/feb/2024-02-16n4.png)
 
-when the slider value changes, it also checks if the slider is at the minimum value, and if so it makes the variable affecting the sample data a smaller number, effectively muting it.
+when the slider value changes, it also checks if the slider is at the minimum value, and if so it makes the variable affecting the sample data a much smaller number, effectively muting it.
 
 ----
 
@@ -318,7 +320,7 @@ Right now, I've implemented a combo (dropdown) box in the bottom right corner. W
 
 ----
 
-## 20/02/24
+## 20/02/24: Resizing With A ScaleFactor
 Finished the logic for the three stages of window resizing.
 This function is called whenever the combobox (called resizenator) is adjusted. Based on the selected option, the width, height and uiScaleFactor variables are adjusted.
 
@@ -352,10 +354,16 @@ At the moment, though, I've only applied it to the input/output knobs and the re
 
 ----
 
-## 27/02/24
-My scaling method works perfectly fine when resizing the window. However, I could not pass the uiScaleFactor variable to the multiSceneComponent and its child buttons since it is in a seperate script. It is either impossible or non achievable due to my lack of knowledge past adding a new include line.
+## 27/02/24: Wrapper-Based Resizing
+My scaling method works perfectly fine when resizing the window. However, I could not pass the uiScaleFactor variable to the multiSceneComponent and its child buttons since it is in a seperate script. It is either impossible or I'm just stupid
+
+```
+Note (21/05/24): I was stupid
+But this new method is better anyway
+```
 
 After searching, I came across a better method. Rather than use a scale factor variable that is applied to every single child component of the editor, a wrapper can be made, assuming the role of the editor (drawing the displayable application window). 
+
 Also, all of the displayable area of the window, including all of the components can be added as a single component to the wrapper.
 
 Because the wrapper contains a single full-sized component all the time, it can be scaled on its own according to the wrapper.
@@ -366,7 +374,7 @@ Here it is, after implementation, and it works smoothly.
 
 ----
 
-## 28/02/24
+## 28/02/24: Input Meter
 Added functionality to save and recall the plugin's size when closed and reopened.
 Also added a bottom bar and repurposed the size selection combobox for preset selection.
 
@@ -381,7 +389,7 @@ In action:
 
 ----
 
-## 1/03/24
+## 1/03/24: Source Organisation
 Improved the organisation by moving the component definitions to their header files, then deleting their source files.
 
 ![](img/log2/march/2024-03-01n1.png)
@@ -399,7 +407,7 @@ Created ui elements in an illustrator canvas so I can export them as svg's for u
 
 ----
 
-## 8/03/24
+## 8/03/24: Output Gain
 Added output gain adjustment using the output gain knob. Still trying to figure out the best way to structure effect processing.
 
 ![](img/log2/march/2024-03-08.png)
@@ -442,7 +450,7 @@ And by doing that, I could finally change the variable.
 
 ----
 
-## 12/03/24
+## 12/03/24: APVTS
 Today I implemented an Audio Value TreeState for the processor. It's basically a list that can contains all of the program's processors, and stores their values within a file. Using this will make preset management much simpler when when I need to do that.
 
 In the processor, I add parameters within the createParameters function with params.add (parameter id, parameter name, min value, max value, default value), and then params is returned into the apvts in its declaration the constructor.
@@ -591,6 +599,8 @@ When the parameters are updated, the gate's status gets the parameter value from
 
 ![](img/log2/april/2024-04-23n2.png)
 
+### Why Command PhaseScriptExecution failed
+
 Also, I got the Command PhaseScriptExecution failed with a nonzero exit code error again, after running the plugin in standalone to test gui positioning (all my other testing before was with the vst3 version).
 
 Because I fixed the problem the other day by regenerating the build files from the projucer project in a new directory, I knew it was just a build configuration messing up that needed to be regenerated.
@@ -603,6 +613,10 @@ And then it ran fine
 I am very glad
 
 ![](img/log2/april/2024-04-23n4.png)
+
+So it ended up being the build files getting corrupt when trying to build the standalone application. 
+
+So do that if it happens to you
 
 ----
 
@@ -647,7 +661,7 @@ You'll hear that when the slider goes up, the lower frequencies start to die dow
 
 ----
 
-## 25/04/24
+## 25/04/24: Tube Screamer Functional
 I found this third party juce module called melatonin inspector, which lets you move around gui components freely like in photoshop. I added it to the repository as a git submodule, then used it to improve some of the positioning.
 
 It can't save these changes directly to the components, so I just noted down the new scale and position for each of them then replaced their old values in the resized() method.
@@ -685,7 +699,9 @@ I'll probably try to expand on the waveshaper soon, because past 100 there isn't
 
 ----
 
-## 27/04/24
+## 27/04/24: Moving Documentation to Website
+Notion kinda wasn't cutting it
+
 Installed Homebrew, ruby and jekyll to make a static site for the documentation
 
 Made a site using a jeckyll template called chirpy
@@ -720,11 +736,9 @@ I was calling all my images like ``![image1](Assets/img/log/image1.png)`` ,
 
 but my actual folder directory is ``![image1](assets/img/log/image1.png)``. 
 
-All just a capital character breaking the whole thing.
-
 ----
 
-## 29/04/24
+## 29/04/24: Compressor
 I started doing the compressor today. I'm just using the juce compressor dsp module for it.
 
 ![](img/log2/april/2024-04-29n1.png)
@@ -752,7 +766,7 @@ Forwarded the processor reference to the rest of the components.
 
 ----
 
-## 9/05/24
+## 9/05/24: Impulse Response Loader
 ### **ImageButton**
 Loaded a test image to use as a button for the effect bypass switch
 
@@ -785,8 +799,8 @@ All I need now is to add a way to select your own IR files, the amp, reverb, pre
 
 ----
 
-## 10/05/24
-I decided to rebuild the website with hugo, rather than jekyll, as I've heard it's faster and more efficient. I found this theme called lotus docs which ticked my one real requirement - having floating table of contents on the side.
+## 10/05/24: Moving Website to Hugo
+I decided to rebuild the website with hugo, rather than jekyll, as it's known to be faster and more efficient. I found this theme called lotus docs which ticked my one real requirement - having floating table of contents on the side.
 
 You can also scroll through the toc if it spills out of the screen, which is a good plus
 
@@ -804,7 +818,7 @@ Added a gain boost in the IR section to compensate for the convolution function'
 
 ----
 
-## 12/05/24
+## 12/05/24: Amp EQ
 I made three peak filters to use as the amplifier's EQ stage.
 
 ![](img/log2/may/2024-05-12n1.png)
@@ -825,7 +839,7 @@ Here's what it sounds like with only itself and the overdrive (with its high pas
 
 ----
 
-## 13/05/24
+## 13/05/24: Migrating Project Log
 Spent all day transferring my project log from obsidian to the website's markdown file (this page) and trying to embed the videos and images properly. Lots of manual file renaming torture because macos screenshots like to have lots of random spaces and have the date in the middle of the file name.
 
 I wasted a lot of time trying to get an image zoom on click script to work and gave up after like 4 hours
@@ -888,7 +902,7 @@ Then they embedded properly
 
 ----
 
-## 15/05/24
+## 15/05/24: IR File Chooser
 Started adding the part 3 and 4 headings to a new markdown file for the documentation.
 
 
@@ -934,7 +948,7 @@ Added some more parameters to the amplifier, mainly resonance and presence.
 
 ----
 
-## 21/05/24
+## 21/05/24: Reverb
 Added reverb in between the amp and the cab
 
 I've set it up to run two reverbs in parallel, one for left and one for right
@@ -945,7 +959,7 @@ The reverb dsp includes its own parameter holder, so in the shouldupdate part, I
 
 ![](img/log2/may/2024-05-21n2.png)
 
-### Demo:
+### **Demo**
 
 {{< video "/img/tulpareverb.mp4" "Reverb Testing" "reverb-player">}}
 
