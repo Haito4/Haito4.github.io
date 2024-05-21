@@ -918,6 +918,35 @@ I also implemented a waveshaper for the preamp stage of the amplifier.
 
 ![](img/log2/may/2024-05-17n3.png)
 
+----
 
+## 19/05/24
+Worked on all of the GUI positioning to make everything flow nicer
 
+![](img/log2/may/2024-05-19.png)
 
+----
+
+## 20/05/24
+Added some more parameters to the amplifier, mainly resonance and presence.
+
+![](img/log2/may/2024-05-20.png)
+
+----
+
+## 21/05/24
+Added reverb in between the amp and the cab
+
+I've set it up to run two reverbs in parallel, one for left and one for right
+
+![](img/log2/may/2024-05-21n1.png)
+
+The reverb dsp includes its own parameter holder, so in the shouldupdate part, I just directly assign the GUI parameters to it rather than first sending them into variables.
+
+![](img/log2/may/2024-05-21n2.png)
+
+### Demo:
+
+{{< video "/img/tulpareverb.mp4" "Reverb Testing" "reverb-player">}}
+
+----
