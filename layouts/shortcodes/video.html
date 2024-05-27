@@ -1,6 +1,30 @@
-<div class="container">
-  <div id="{{ .Get 2 }}" class="{{ .Get 1 }}"></div>
+<div class="video-container">
+  <div id="{{ .Get 2 }}" class="clappr-container"></div>
 </div>
+
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 60vw; /* Normal width */
+    padding-bottom: 62.5%;
+    background: #000;
+  }
+
+  .video-container .clappr-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .video-container {
+      max-width: 100vw; /* (for mobile / lower res) */
+    }
+  }
+</style>
 
 <script
   type="text/javascript"
@@ -13,9 +37,11 @@
 
   var player = new Clappr.Player({
     source: "{{ .Site.BaseURL }}{{ .Get 0 }}",
-    mute: true,
-    height: 360,
-    width: 640
+    mute: false,
+    height: '100%',
+    width: '100%',
+    autoPlay: false,
+    mediacontrol: { seekbar: "#0e7bf7", buttons: "#FFFFFF" }
   });
 
   player.attachTo(playerElement);
