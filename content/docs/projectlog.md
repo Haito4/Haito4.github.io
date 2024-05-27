@@ -964,3 +964,54 @@ The reverb dsp includes its own parameter holder, so in the shouldupdate part, I
 {{< video "/img/tulpareverb.mp4" "Reverb Testing" "reverb-player">}}
 
 ----
+
+## 22/05/24
+Worked on the program development & techniques section of the documentation.
+
+Started making the svg for the amplifier in illustrator.
+
+![](img/log2/may/2024-05-22.png)
+
+----
+
+## 23/05/24
+Continued on the amp svg
+
+----
+
+## 26/05/24
+Added a level adjustment knob for the compressor
+Added a custom knobs component called jb knobs for the amp's sliders.
+And a new pair of images for the power toggle.
+
+![](img/log2/may/2024-05-26n1.png)
+
+Also added a new image for the pedal bypass switch, so it looks like an actual bypass switch
+
+![](img/log2/may/2024-05-26n2.png)
+
+----
+
+## 27/05/24
+Finished the code generation section of Program Development & Techniques.
+
+In the Process of detecting and correcting errors, finished the Syntax Checking, Logic Errors, Desk Checking, Use of expected output and runtime errors sections.
+
+Made some adjustments to the video player script on the website so that they're responsive to browser size.
+The main change is that the position of the video container is relative, and the max width is by default 60% of the browser's screen. When it's underneath 1025 pixels wide, the max width is 100%.
+
+![](img/log2/may/2024-05-27.png)
+
+### Before
+
+![](img/log2/may/mobilebefore.gif)
+
+![](img/log2/may/desktopbefore.gif)
+
+### After
+
+![](img/log2/may/MobileAfter.gif)
+
+![](img/log2/may/DesktopAfter.gif)
+
+----
