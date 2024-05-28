@@ -1,7 +1,7 @@
 ---
-weight: 1
-title: "Documentation Part 1"
-description: ""
+weight: 20
+title: "Part 1"
+description: "Major Project Documentation"
 icon: "article"
 date: "2023-12-15T09:23:34+10:00"
 lastmod: "2024-05-10T09:23:34+10:00"
@@ -9,6 +9,7 @@ draft: false
 toc: true
 scrollSpy: true
 ---
+
 ----
 # **1. Defining And Understanding The Problem**
 ----
@@ -17,7 +18,7 @@ scrollSpy: true
 ### **Identifying the problem**
 
 #### Needs of the Client
-When practising guitar or tracking within a digital audio workstation,
+When practicing guitar or tracking within a digital audio workstation,
 one will find themselves seeking a convenient signal chain solution that
 enables them to instantly get a sound that works, diminishing the need
 for costly external guitar hardware such as pedals, amplifiers, and

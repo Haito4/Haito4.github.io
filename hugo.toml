@@ -26,6 +26,16 @@ title = 'Artisian DSP Documentation'
     scrollSpy = true
     lastMod = true
     extLinkNewTab = true
+    
+    backToTop = true
+    navDesc = true
+    
+    sidebarIcons = true
+    titleIcon = true
+    
+    
+[params.flexsearch]
+  enabled = false
 
 [markup.tableOfContents]
     endLevel = 6

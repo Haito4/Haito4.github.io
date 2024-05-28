@@ -1,8 +1,8 @@
 ---
-weight: 2
+weight: 200
 title: "Project Log"
 description: ""
-icon: "article"
+icon: "list_alt"
 date: 2023-11-24 12:00:00
 date: "2024-05-10T09:23:34+10:00"
 lastmod: "2024-05-10T09:23:34+10:00"

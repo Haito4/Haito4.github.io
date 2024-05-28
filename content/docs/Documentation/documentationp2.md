@@ -1,7 +1,7 @@
 ---
-weight: 3
-title: "Documentation Part 2"
-description: ""
+weight: 30
+title: "Part 2"
+description: "Major Project Documentation"
 icon: "article"
 date: 2023-11-24 12:00:00
 date: "2024-05-10T09:23:34+10:00"
