@@ -266,7 +266,7 @@ Well it works now for some reason. Test knob is there.
 
 ![](img/log2/feb/2024-01-23n2.png)
 
-This is all it is. I feel stupid for trying to salvage 5 year old code using outdated JUCE functions.
+This is all it is. I feel stupid for trying to salvage old code with outdated functions.
 
 ![](img/log2/feb/2024-01-23n3.png)
 
@@ -1013,5 +1013,245 @@ The main change is that the position of the video container is relative, and the
 ![](img/log2/may/MobileAfter.gif)
 
 ![](img/log2/may/DesktopAfter.gif)
+
+----
+
+## 28/05/24
+Finished the **design of individual screens** section found under the interface design part of the documentation.
+
+Started the use of software debugging tools
+
+----
+
+## 29/05/24
+Started working on the preset management system.
+
+----
+
+## 30/05/24
+Finished the use of software debugging tools, started user documentation parts of the documentation.
+
+Kept going on the preset manager
+
+----
+
+## 1/05/24
+Finished the preset manager basis.
+Ive spent ages on trying to get the ir loader to work with it, but its very finnicky
+
+Right now ive got a problem where the selected ir will only be the previously selected one.
+
+IR 2 loaded, but says and loads IR 1.
+Switch to IR 3 preset, but says and loads IR 2.
+This means that the previously selected preset is being loaded when a new preset is loaded.
+  
+This means that the irs are being loaded before the variables are changed,
+which means that before loadpreset() is finished executing, valuetreeredirected() in impulse6component is setting the already loaded ir.
+
+----
+
+Alright I half did it finally.
+
+In my loadpreset() function, set the lastIr path and name variables to the attribute found in the xml file.
+
+After, I check if its a valid file that exists, and if so, I set a boolean to true, that loads the new file in the processor script.
+
+![](img/log2/june/2024-06-01n1.png)
+
+![](img/log2/june/2024-06-01n2.png)
+
+Here's me going through some example presets. They all have relatively similar effect settings, but just different IRs. I've also got some debug statements that confirm the currently selected IR. Some presets do not contain an IR, that fulfil the else case of that if statement.
+
+{{< video "/img/Ir_preset_testing.mp4" "Impulse Response Preset Testing" "irpresetTest-player">}}
+
+I still have few problems that I need to fix. One is that the text on the GUI is the name of the previous IR selected. Better than having the previous IR loaded, but still necessary.
+
+I also need to make a prompt if the IR location is invalid, because say if someone were to share a preset, they would need the option to select its directory on their own machine.
+
+The last thing is recalling the loaded IR when you close and open your DAW again. At the moment, if you load an ir or preset, it will forget the IR when you close the app, which is inconvenient for any user. Sliders and buttons keep their state fine at the moment though, which I'm glad of.
+
+----
+
+## 3/05/24
+Finished the process of detecting & correcting errors, user documentation, and started technical documentation parts of the documentation.
+
+Fixed the issue where the IR name was stuck on the previous preset's ir name. 
+I did this by creating a new variable tree in the processor and assigning the new ir name to one of its properties.
+
+![](img/log2/june/2024-06-03n1.png)
+
+Then in the impulse response GUI, I can use a listener to update the label only when that property changes.
+
+![](img/log2/june/2024-06-03n2.png)
+
+
+I made a button to fix the path of the broken IR that appears only when an invalid IR is loaded from a preset. In the same listener, I set it to visible, if the IR is invalid. When clicked, it functions the same way as the normal ir loader button.
+
+#### Working (normal preset):
+
+![](img/log2/june/2024-06-03n3.png)
+
+#### Broken (fixable) preset:
+
+![](img/log2/june/2024-06-03n4.png)
+
+(I'll readjust the positioning later)
+
+
+### Complications
+When making it, I ran into an error where the fix button would hang around, even when going back to a working preset. It would also stay hidden after fixing a preset and then switching to another broken one.
+After a bit of debugging, I figured out that the line where I set the new property, will always be the same error string.
+```cpp
+audioProcessor.variableTree2.setProperty("NEW_IRNAME", "Invalid IR File!", nullptr);
+```
+
+ I realised that resetting the property to the same string would not tell the listener, so I made an if statement in the load preset function.
+
+![](img/log2/june/2024-06-03n5.png)
+
+In the case of an invalid IR, I set a new property that is between one of two choices. When one is transmit, the bool value is flipped, so that the next one will be the other.
+
+Then, in the listener, it checks if the IR was valid. An invalid IR will always have the same error message, which is set here. A valid one will get the string of the property that was changed and give it to the button.
+
+![](img/log2/june/2024-06-03n6.png)
+
+
+At the moment, this only fixes the currently loaded IR, which means I still have to include functionality for it to write the the path to the existing preset file.
+
+----
+
+## 4/06/24
+**Code changes:**
+https://github.com/Haito4/ArtisianDSP/commit/058ec966356a6ddf29c52c174938109fee41b9e8
+
+Started working on part 4 of the documentation - comparing to the original design specifications.
+
+I added the functionality for updating the old preset file with the new IR information. Luckily, because of the foundation I laid out yesterday, it was fairly simply to implement.
+
+When the load preset function is called, before the attributes are updated, I set a variable within the audio processor to the path of the newly selected preset file, so it can be accessed by the impulse loader component.
+
+![](img/log2/june/2024-06-04n1.png)
+
+
+Within the impulse component, at the end of the fix button's onclick lambda, I use that path to create a file reference, open it as an xml, and set the attributes to the new values. Throughout it there are some debug statements which helped identify points of failure.
+
+![](img/log2/june/2024-06-04n2.png)
+
+### Preset Path Updating
+Here's a video testing the new changes. I start off on an old preset called obzen from an earlier system that doesn't even have the IR path and name fields.
+
+When I click fix, I choose a new wav file, and it gets loaded successfully like before.
+
+The difference is now, when switching to another preset and back to the obzen one, it switches back to the wav file I selected with the fix button.
+
+{{< video "/img/presetmanagerWorkingwell.mp4" "Preset Manager Working Well" "presetManagerWW-player2">}}
+
+After, I also made some changes to immediately load the current IR the last selected preset when the plugin is launched, so that the user can avoid listening to the fizz of the plain amp.
+
+The next (and last) step I can do on this is including support for wav files loaded into the binary data of the program, that do not exist in a directory. To do this, I'll probably need to include a new identifier called something like "usingbinaryIR" and set it to either true or false depending on the type of IR selected. I'll add the name of the internal IR as well.
+
+Then, with a couple of if statements impacted by those attributes, I'll be able to have presets that work straight out of the box.
+
+----
+
+## 5/06/24
+I spent ages trying to get this support working for binary data IRs within the preset system. 
+
+I struggled for a while, but found the source of my problem to be a boolean getting set to true when it needed to stay false within a comboboxupdated listener in the impulse gui component.
+
+Right now it's far too messy to fully explain, but what matters is it works now.
+
+If you want to see just how terrible it is, here is where I gave up:
+https://github.com/Haito4/ArtisianDSP/commit/a7e086883d4371b6d28ed001ee6bdf50f94447a7
+
+and here is where I realised the problem:
+https://github.com/Haito4/ArtisianDSP/commit/8e9803beab36b11cac3e5e6faa221e415cfc14c7
+
+But yeah now its functional enough for me to not have to worry about it.
+
+
+Here's what the IR screen looks like now:
+
+![](img/log2/june/2024-06-05.png)
+
+----
+
+
+## 6/06/24
+Added labels to all of the sliders so the user can know what parameter they're changing
+
+
+Loaded in the SVG file I made before for the amplifier and readjusted the parameter scale & positions
+
+![](img/log2/june/2024-06-06.png)
+
+----
+
+## 7/06/24
+Added the help menu which is accessible from a button in the bottom left hand corner
+
+It overlays the screen with a transparent black rectangle to dim the main screen, and whatever I need to include in the menu can go above it, where the placeholder text and box are right now.
+
+![](img/log2/june/2024-06-07.png)
+
+----
+
+## 8/06/24
+Finished off the compressor in illustrator and then added it to the program as a binary data SVG.
+
+![](img/log2/june/2024-06-08n1.png)
+
+Then I started trying to put it into the compressor scene.
+
+Because it isn't the width of the window, it was hard to resize correctly
+
+![](img/log2/june/2024-06-08n2.png)
+
+I was able to get the right scale and position by making a rectangle based on the original aspect ratio of the pedal and then filling it with the svg.
+
+![](img/log2/june/2024-06-08n3.png)
+
+I also added a bypass indicator and changed the style of the sliders to match, and removed the existing labels because they're already in the image.
+
+![](img/log2/june/compGUI.gif)
+
+Later, I was doing some testing with the preset system and found a problem. If you delete a preset and then save and close the plugin, reopening the plugin will cause a crash. After debugging, I found that this was because it was trying to load the IR of a nonexistent preset, which can't really happen.
+
+So in setStateInformation(), which is run on launch, executes, I added this if statement before the IR loading:
+
+```cpp
+if (!juce::File(presetManager->getCurrentPresetPath()).exists())
+    return;
+```
+
+which will just exit the function if the path to the preset saved in the plugin's state doesn't exist.
+And it fixed it.
+
+----
+
+## 9/06/24
+Did a bunch of fixes to the preset system, mainly regarding GUI updates on different IR load states.
+
+Started adding all the tooltips to each parameter.
+
+Each one provides a short explanation of what the parameter does.
+
+![](img/log2/june/2024-06-09n1.png)
+
+In the help menu, I added a button which links to the website.
+
+![](img/log2/june/2024-06-09n2.png)
+
+After, I added a button pointing to the source code and and privacy disclosure.
+
+![](img/log2/june/2024-06-09n3.png)
+
+After, I wrote a few paragraphs about each function of the plugin, and chucked it in a single label. It was kind of troublesome to handle though, because the text would just spill out of the screen. To circumvent this, i made use of a viewport, which is kind of like a window you can peek through to its attached components. Because viewports automatically contain scroll bars, it worked perfectly.
+
+Here's what the final thing looks like, with the links working:
+
+![](img/log2/june/helpscreen.gif)
+
+The last thing I need to do now is add the rest of the pedal images and fix one more IR loading error. After that the plugin's fully done.
 
 ----
