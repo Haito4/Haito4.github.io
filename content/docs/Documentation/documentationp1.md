@@ -241,16 +241,16 @@ used for a multitude of purposes in the software solution's context.
 Arrays can be used to process and store audio samples as chunks of data.
 Different types of arrays can be used for different purposes:
 
-> ***Float Array:*** Float arrays can be used to store audio samples,
-> allowing for manipulation of specific data points.
->
-> ***Int Array:*** Integer arrays can be used to store MIDI data,
-> allowing the program to receive program & control change messages and
-> be able to interpret them to respond with a particular function.
->
-> ***String Array:*** String arrays can be used to store parameter
-> options in dropdown lists. These enable a set number of parameters to
-> be interacted with by the user and be named accordingly.
+***Float Array:*** Float arrays can be used to store audio samples,
+allowing for manipulation of specific data points.
+
+***Int Array:*** Integer arrays can be used to store MIDI data,
+allowing the program to receive program & control change messages and
+be able to interpret them to respond with a particular function.
+
+***String Array:*** String arrays can be used to store parameter
+options in dropdown lists. These enable a set number of parameters to
+be interacted with by the user and be named accordingly.
 
 #### Software Development Approach
 
@@ -337,14 +337,19 @@ system, CPU, and graphics processing units.
 
 ### IPO Charts
 
+----
+
 | Input | Process | Output |
 |---|---|---|
 | - User’s direct interface input signal<br> - Adjust parameters of processors | Run through input block with selected parameters.<br> Mute signal if below selected gate threshold. <br> Run signal through compressor with selected parameters.<br> Run signal through drive with selected parameters.<br> Run signal through Amplifier Simulator with selected parameters.<br> Run signal through reverb with selected parameters.<br> Run signal through impulse response loader with selected parameters.<br> Run signal through output block with selected parameters. | Effected audio output<br> Display adjusted parameters for each block in GUI |
 
+----
 
 | Input | Process | Output |
 |---|---|---|
 | - Save Current Preset<br>- Input preset name | Get all current parameter states and store in an array<br>Ask for preset name<br>Save array as a file within the program’s presets folder<br>Add new preset to list of selectable presets within the software’s GUI | Prompt for preset name<br>Display saved preset as current preset<br>Show new preset in preset selection list |
+
+----
 
 ### Context Diagram
 ![Context Diagram](img/Charts/context.png)
@@ -466,7 +471,7 @@ Time: 12:47pm - 12:51pm
 -   On track
 
 ### Development log
-[Click here](projectlog)
+[Click here](docs/projectlog)
 
 
 # **2. Planning and Design of Software Solutions**
