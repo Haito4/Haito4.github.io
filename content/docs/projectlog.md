@@ -1035,7 +1035,7 @@ Kept going on the preset manager
 
 ----
 
-## 1/05/24
+## 1/06/24
 Finished the preset manager basis.
 Ive spent ages on trying to get the ir loader to work with it, but its very finnicky
 
@@ -1072,7 +1072,7 @@ The last thing is recalling the loaded IR when you close and open your DAW again
 
 ----
 
-## 3/05/24
+## 3/06/24
 Finished the process of detecting & correcting errors, user documentation, and started technical documentation parts of the documentation.
 
 Fixed the issue where the IR name was stuck on the previous preset's ir name. 
