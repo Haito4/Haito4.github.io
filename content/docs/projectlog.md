@@ -992,7 +992,7 @@ Also added a new image for the pedal bypass switch, so it looks like an actual b
 
 ----
 
-## 27/05/24
+## 27/05/24: Video Formatting Fixes
 Finished the code generation section of Program Development & Techniques.
 
 In the Process of detecting and correcting errors, finished the Syntax Checking, Logic Errors, Desk Checking, Use of expected output and runtime errors sections.
@@ -1035,7 +1035,7 @@ Kept going on the preset manager
 
 ----
 
-## 1/06/24
+## 1/06/24: Preset Manager
 Finished the preset manager basis.
 Ive spent ages on trying to get the ir loader to work with it, but its very finnicky
 
@@ -1072,7 +1072,7 @@ The last thing is recalling the loaded IR when you close and open your DAW again
 
 ----
 
-## 3/06/24
+## 3/06/24: Preset Fix Button
 Finished the process of detecting & correcting errors, user documentation, and started technical documentation parts of the documentation.
 
 Fixed the issue where the IR name was stuck on the previous preset's ir name. 
@@ -1120,7 +1120,7 @@ At the moment, this only fixes the currently loaded IR, which means I still have
 
 ----
 
-## 4/06/24
+## 4/06/24: Writing To an Existing Preset
 **Code changes:**
 https://github.com/Haito4/ArtisianDSP/commit/058ec966356a6ddf29c52c174938109fee41b9e8
 
@@ -1154,7 +1154,7 @@ Then, with a couple of if statements impacted by those attributes, I'll be able 
 
 ----
 
-## 5/06/24
+## 5/06/24: Binary Data IRs
 I spent ages trying to get this support working for binary data IRs within the preset system. 
 
 I struggled for a while, but found the source of my problem to be a boolean getting set to true when it needed to stay false within a comboboxupdated listener in the impulse gui component.
@@ -1177,9 +1177,8 @@ Here's what the IR screen looks like now:
 ----
 
 
-## 6/06/24
+## 6/06/24: Amp GUI
 Added labels to all of the sliders so the user can know what parameter they're changing
-
 
 Loaded in the SVG file I made before for the amplifier and readjusted the parameter scale & positions
 
@@ -1187,7 +1186,7 @@ Loaded in the SVG file I made before for the amplifier and readjusted the parame
 
 ----
 
-## 7/06/24
+## 7/06/24: Help Menu
 Added the help menu which is accessible from a button in the bottom left hand corner
 
 It overlays the screen with a transparent black rectangle to dim the main screen, and whatever I need to include in the menu can go above it, where the placeholder text and box are right now.
@@ -1196,7 +1195,7 @@ It overlays the screen with a transparent black rectangle to dim the main screen
 
 ----
 
-## 8/06/24
+## 8/06/24: Compressor GUI
 Finished off the compressor in illustrator and then added it to the program as a binary data SVG.
 
 ![](img/log2/june/2024-06-08n1.png)
@@ -1229,7 +1228,7 @@ And it fixed it.
 
 ----
 
-## 9/06/24
+## 9/06/24: Finishing Help Menu
 Did a bunch of fixes to the preset system, mainly regarding GUI updates on different IR load states.
 
 Started adding all the tooltips to each parameter.
@@ -1253,5 +1252,54 @@ Here's what the final thing looks like, with the links working:
 ![](img/log2/june/helpscreen.gif)
 
 The last thing I need to do now is add the rest of the pedal images and fix one more IR loading error. After that the plugin's fully done.
+
+----
+
+## 10/06/24: Rest of GUI
+Added the SVG and indicator light for the noise gate.
+
+![](img/log2/june/2024-06-10n1.png)
+
+Updated the GUI for everything else too
+
+![](img/log2/june/2024-06-10n2.png)
+
+![](img/log2/june/2024-06-10n3.png)
+
+![](img/log2/june/2024-06-10n4.png)
+
+![](img/log2/june/2024-06-10n5.png)
+
+----
+
+Finished the unit, module and system testing in the documentation.
+
+refined and finished interface design.
+
+Added images to code generation.
+
+Finished half of use of live test data.
+
+----
+
+## 11/06/24
+Finished the use of live test data.
+
+Updated gantt chart accordingly.
+
+----
+
+## 12/06/24
+Started writing paragraphs for reporting on the testing process, and making some test plans.
+
+----
+
+## 13/06/24
+Went through marking criteria with interface design, made some improvements.
+
+----
+
+## 14/06/24
+Started moving part 2 documentation to the website.
 
 ----
