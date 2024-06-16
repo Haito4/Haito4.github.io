@@ -34,7 +34,7 @@ Pedals are positioned in the same centred position in each scene, sharing a simi
 
 White space (black in this case) surrounds each pedal to direct the user’s focus to the centre through contrast. The amp and cab possess some differences in size and position, but still follow this principle.
 
-I also included simplistic level metres to provide an active sense of responsiveness to the plugin, allowing users to visually see the audio data they input, and the difference in signal intensity by the time it is output.
+I also included simplistic level meters to provide an active sense of responsiveness to the plugin, allowing users to visually see the audio data they input, and the difference in signal intensity by the time it is output.
 
 
 #### Help Screens
@@ -56,7 +56,7 @@ I also provided full closure about any data collection in my plugin to ensure tr
 ----
 
 ## **Program Development & Techniques**
-### **Code generation**
+### **Code Generation**
 
 #### One Logical Task Per Subroutine
 I approached code generation in a structured manner, where each element of the signal chain is treated as its own “block” within the processor. Within each block are 1-10 subroutines, each applying the result of one logical task to the audio samples.
@@ -70,7 +70,7 @@ When errors arose, their corresponding messages were not always of great help. T
 
 Juce has a built-in function, DBG(), for this purpose. When a parameter change seemingly had no effect on the audio, I would call DBG(variable) to verify that a certain variable was working as expected. If not, I would know where to start implementing fixes.
 
-#### Elegance of solution
+#### Elegance of the Solution
 An important detail I took into consideration during development was the elegance of the solution. I aimed to create a clear, understandable and easy to navigate codebase, without any unnecessary complexity. In the beginning, this was definitely not the way it looked, but as I progressed through development and became more accustomed to the language and the framework, I was able to immensely improve the code by following best practices, and restructuring unnecessary chunks.
 
 ![](img/p2/neatcode.png)
@@ -111,7 +111,7 @@ Overall, by implementing these code generation practices, I was able to ensure t
 
 
 
-
+----
 
 ### **Process of detecting and correcting errors**
 Throughout the development of my software solution, I took various steps to detect and correct errors in the source code. By regularly utilising these processes, I could ensure that the reliability of the code and stability of the software solution existed to a high standard.
@@ -143,7 +143,7 @@ The utilisation of these error detection and correction methods enabled me to re
 
 
 
-
+----
 
 ### **The Use of Software Debugging Tools**
 Throughout the development of the software, I regularly found myself face to face with a frequent amount of bugs and errors. To resolve such issues, I made use of a variety of software debugging tools.
@@ -197,7 +197,7 @@ My software solution provides its documentation through its included files as we
 
 
 
-
+----
 
 ### **Technical Documentation**
 The creation of technical documentation is a commonly found, yet essential practice in software development. Such documentation provides vital information about the inner workings of the software solution to collaborators, internal members, clients and end users. It ensures that everything can be understood and used efficiently.
@@ -264,8 +264,8 @@ On track
 
 Click [here](docs/projectlog/#part-2) to go to my project log.
 
-### **Updated and completed GANTT Chart.**
-SDD Gantt Chart
+### **Updated and completed GANTT Chart**
+[SDD Gantt Chart](https://docs.google.com/spreadsheets/d/17Ok0trQZ1qZ9iUKaFopEbsBKpJLXorLFDxOz9PAvpSk/edit?usp=sharing)
 
 
 ----
@@ -352,8 +352,6 @@ After unit and module testing, I tested the entire system to validate its comple
 
 
 ### **The Use of Live Test Data to Test the Solution**
-Intro Paragraph
-
 When a solution reaches a point in which it is releasable, it must undergo numerous tests utilising real, “live”, test data to ensure its reliability, performance, and user-friendliness when faced with the scenarios it will regularly be interfacing with.
 
 Using live test data allows for the possibility of extreme, conceivably possible scenarios to occur and be monitored during the testing stage, letting developers make changes accordingly, something that may be harder to replicate with synthetic test data.
@@ -371,7 +369,7 @@ I tested my program by loading files of varying types into the IR loader. Becaus
 #### Response Times
 Response time is a software quality metric that measures the time it takes for a system to respond to a user’s request, or internal change. A high response time is not a favourable outcome for a program, as it can lead to user annoyance and even abandonment of the software. Since elements like buttons should provide a near instantaneous response (<100 milliseconds), they generally require no visual feedback. Elements with a longer response time (>1 second), possess a noticeable delay, and should resultantly provide visual feedback, such as a spinner or progress bar. To ensure that response times are kept low for users, the program must be coded in an efficient manner, with performance in mind.
 
-During my testing for response time, I found that all buttons and sliders respond instantaneously to user inputs (<100ms). When changing presets, there is a slight audio delay as all the parameters are updated to their new values. Any changes in input and output audio are represented visually through the metres on each side of the window, ensuring that there is always visual responsiveness when the audio side of the plugin is working correctly.
+During my testing for response time, I found that all buttons and sliders respond instantaneously to user inputs (<100ms). When changing presets, there is a slight audio delay as all the parameters are updated to their new values. Any changes in input and output audio are represented visually through the meters on each side of the window, ensuring that there is always visual responsiveness when the audio side of the plugin is working correctly.
 
 #### Volume Data (Load Testing)
 Load testing determines how a software solution will behave during normal and peak load conditions, in addition to its breaking point (if it exists below the peak load). The goal in load testing is to identify bottlenecks to performance, make sure that the system can handle the expected peak loads, and verify that it upholds the functional requirements.
@@ -410,4 +408,18 @@ The test results will be an exact recording of the actual output of the test. Th
 Should the results of a test differ from what is expected, a course of action to take to solve the problem should be recommended.
 
 ### **Testing Table**
-...
+| Test plan | Test data | Expected results | Test results | Recommendations of how to solve the problem |
+|---|---|---|---|---|
+| Run a simple sine wave through the plugin with no effects enabled and test for audio degradation. | Sine wave at a pitch of C3 from a virtual synth. | The audio output meter will be identical to that of the input, since no effects are enabled. <br>There should be no change in signal intensity when the plugin is bypassed. | Input and output meters sit at the same level. <br> Plugin Disabled: Audio level sits at +3dB. <br> Plugin Enabled: Audio remains at +3dB. No audible difference in the output signal. | None needed |
+| Use the noise gate with DI guitar audio | DI Audio, <br>Enable only the noise gate and adjust parameters | The noise gate functions according to the current parameter values | After using the gate for an extended amount of time, the signal starts degrading | Change the noise gate algorithm to a working DSP process that does not rely on an averaging buffer |
+| Use the Compressor | DI Audio, <br>Enable only the compressor and adjust parameters | The compressor functions according to the current parameter values | The compressor worked according to the selected parameters | None needed |
+| Use the Overdrive | DI Audio, <br>Enable only the overdrive and adjust parameters | The overdrive functions according to the current parameter values | The overdrive worked according to the selected parameters | None needed |
+| Use the Amplifier | DI Audio, <br>Enable only the amplifier and adjust parameters | The amplifier functions according to the current parameter values | The amplifier worked according to the selected parameters | None needed |
+| Use the Reverb | DI Audio, <br>Enable only the reverb and adjust parameters | The reverb functions according to the current parameter values | The reverb worked according to the selected parameters | None needed |
+| Use the IR Loader | DI Audio, <br>Enable only the IR loader and adjust parameters | The IR loader functions according to the current parameter values | The IR loader worked according to the selected parameters | None needed |
+| Make use of the whole signal chain | DI Audio, <br>Enable every effect and adjust parameters | All parameters work in coordination with each other, and a usable guitar tone is made. | Parameters continued to work, and a usable guitar tone was made. | None needed |
+| Test the View Code button | Click the View Code button | The link to the source code opens in the default browser | Worked as expected. | None required |
+| Test the Online Help Button | Click the Online Help button | The link to the online help opens in the default browser | Worked as expected. | None needed |
+| Test the input and output meters | Input DI audio, enable effects | Both meters reflect their proper states, and output level is greater than the input. | The output metre always remains at zero on the windows version. | Move the RMS calculation for the output metre to the end of the process block. |
+| Use in a full mix (hard panned, distorted guitars) | Use the plugin on two guitar tracks simultaneously, with  no other plugins on their signal path | The guitars sit well in the mix, notes played sound cohesive | Worked as expected. | None needed. |
+
