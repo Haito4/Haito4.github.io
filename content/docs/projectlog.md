@@ -1303,3 +1303,86 @@ Went through marking criteria with interface design, made some improvements.
 Started moving part 2 documentation to the website.
 
 ----
+
+## 15/06/24: Testing
+Started doing testing. I found an error in the noise gate which stopped it from working as intended when used for a longer period of time. I figured that it was due to its use of an averaging buffer, which would be dragged below what its value actually should be due to the silences caused by the gate.
+
+To fix, I replaced the old algorithm with juce's noise gate DSP module, and gave it the parameter values in the shouldUpdate section.
+
+![](img/log2/june/2024-06-15n1.png)
+
+![](img/log2/june/2024-06-15n2.png)
+
+
+Doing this makes it a bit simpler to navigate.
+
+![](img/log2/june/2024-06-15n3.png)
+
+----
+Started trying to build on windows, but everything kept breaking, linker errors and stuff
+
+
+I finally got it to work after changing the juce version to the same one that I developed on. Sliders and output meter don't work though.
+
+![](img/log2/june/2024-06-15n4.png)
+
+
+I found an error that stopped me from using ASIOs that I fixed by installing and referencing the asio sdk from steinberg.
+
+![](img/log2/june/2024-06-15n5.png)
+
+After that I had to fix the output meter, which I did by just moving it to the end of the process block.
+
+![](img/log2/june/2024-06-15n6.png)
+
+
+I changed around the included binary IRs for a wider range of sound characters
+
+![](img/log2/june/2024-06-15n7.png)
+
+----
+
+## 16/06/24
+Finished the testing table and transferred it over to the website. Just need to make the user documentation, package the software, and it's pretty much done.
+
+![](img/log2/june/2024-06-16.png)
+
+----
+
+## 17/06/24: User Manual
+Made the user manual for the software in google docs. I used the draw feature to make the note indications, which helps add to what would otherwise just be a wall of text.
+
+![](img/log2/june/2024-06-17.png)
+
+----
+
+## 21/06/24: Online Help, MacOS Installer
+Started transferring the help guides to the website.
+
+![](img/log2/june/2024-06-21n1.png)
+
+Made an installer for macOS with an app called packages.
+
+It's a dmg which contains the installer and the user manual.
+
+![](img/log2/june/2024-06-21n2.png)
+
+---
+
+## 22/06/24: v1.0 Release
+Made the installer for windows using inno setup. It installs the VST, VST3, and .exe versions of the plugin, as well as the example presets, and the user manual.
+
+{{< video "/img/testingInstaller.mp4" "Testing Windows Installer" "testing-the-winstaller">}}
+
+After, I retested to see that the mac installer worked fine, and it seemed to do everything it needed to.
+
+
+Then I added all the installers to a new release on the github repo
+
+![](img/log2/june/2024-06-22n1.png)
+
+![](img/log2/june/2024-06-22n2.png)
+
+So yeah its basically done now
+
+----

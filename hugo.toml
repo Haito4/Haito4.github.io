@@ -17,7 +17,8 @@ title = 'Artisian DSP Documentation'
     [markup.goldmark.parser]
       wrapStandAloneImageWithinParagraph = false
 
-
+[params.social]
+    github = "Haito4/ArtisianDSP"
 
 [params.docs]
     intLinkToolTip = true
