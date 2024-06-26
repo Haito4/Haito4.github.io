@@ -19,22 +19,27 @@ scrollSpy: true
 ### **The Design of Individual Screens**
 #### Identifying Data Required
 
-During the design of the individual screens, it was vital that I identified the necessary data that was to be used, and how it would be stored and manipulated. I made sure that the plugin could receive and interpret various different types of data, including parameter changes, audio data, preset information and audio settings.
+During the design of the individual screens, it was vital that I identified the necessary data that was to be used, and how it would be stored and manipulated. I made sure that the program could interpret and receive various different types of data, including parameter changes, audio data, preset information and audio settings.
 
 By setting up the plugin’s effect parameters within a parameter layout, all the data could be stored within an xml file on the user’s machine. This allowed me to store and recall parameter information for the purposes of preset management, as well as easily link the parameters to  sliders and buttons within each GUI component.
 
 
 #### The Design of An Effective User Friendly Interface
 
-During the development of the graphics user interface (GUI), I maintained a focus on the stylised, colour-coded recreation of reference pedals and amplifiers, to provide visually distinguishable points in the signal chain. This allows users to be able to immediately differentiate between each one by forming a colour association with the affected sound, allowing for a more intuitive experience. The use of different fonts for each effect’s text works to supplement this.
+##### Visual Style
+During the development of the graphics user interface (GUI), I maintained a focus on the stylised, colour-coded recreation of reference pedals and amplifiers, to provide visually distinguishable points in the signal chain. This allows users to be able to immediately differentiate between each one by forming a colour association with the affected sound, allowing for a more intuitive experience. Additionally, the use of different fonts for each effect’s text works to supplement this.
 
-I upheld a standard of consistency throughout the GUI layout to keep the experience ergonomic. Rows of buttons, including the effects and preset selectors, are evenly spaced out from the centre, keeping the layout clean and symmetrical.
+##### Consistency
+I upheld a standard of consistency throughout the GUI layout to keep the experience ergonomic. Rows of buttons, including the effects and preset selectors, are evenly spaced out from the centre, keeping the layout clean and symmetrical, in line with standard conventions.
 
-Pedals are positioned in the same centred position in each scene, sharing a similar shape and button / slider style, with an glowing on/off indicator for quick status identification. 
+Pedals are positioned in the same centred position in each scene so it becomes intuitive for users, each sharing a similar shape and button/slider style, with an glowing on/off indicator for quick status identification. 
 
+##### White Space
 White space (black in this case) surrounds each pedal to direct the user’s focus to the centre through contrast. The amp and cab possess some differences in size and position, but still follow this principle.
 
+##### Visual Responsiveness
 I also included simplistic level meters to provide an active sense of responsiveness to the plugin, allowing users to visually see the audio data they input, and the difference in signal intensity by the time it is output.
+
 
 
 #### Help Screens
@@ -42,12 +47,13 @@ To ensure an accessible experience for all users, I included various forms of he
 I made use of popup tooltips for quick on-the-spot explanations of the plugin’s sliders. Each window includes an identification of what the slider does, and how changing the value will affect the audio.
 
 An example from the compressor:
+
 ![Tooltips](img/p2/helpscreens.png)
 
 
 #### Level, Social, Ethical Issues
 
-Considering the addressed legal, social and ethical issues identified in [Section 1](docs/documentation/documentationp1/#social--ethical-considerations), I took privacy into great consideration whilst designing the software solution. I made sure to protect my users’ data by reviewing the source code of any third-party submodules I had included, verifying that there was no malicious logic.
+Considering the legal, social and ethical issues identified in [Section 1](docs/documentation/documentationp1/#social--ethical-considerations), I took privacy into great consideration whilst designing the software solution. I made sure to protect my users’ data by reviewing the source code of any third-party submodules I had included, verifying that there was no malicious logic.
 
 I also provided full closure about any data collection in my plugin to ensure trust in users. Additionally, because the project repository is public, any user is able to review the codebase and compile it themselves if they wish. A button on the help screen points to the source code on the github repository for this purpose.
 
@@ -64,7 +70,7 @@ I approached code generation in a structured manner, where each element of the s
 Following this same mindset, I also structured the source code to include a unique header file for each scene’s GUI elements. By implementing these techniques, isolating the source of particular errors became much easier, and allowed for easier codebase navigability.
 
 #### Debugging Output Statements
-When errors arose, their corresponding messages were not always of great help. To solve these, I would make use of debug output statements to find out where exactly things were going wrong.
+When errors arose, their corresponding messages were not always of great help. To solve these, I would make use of debug output statements - lines of code that create a console output - to find out where exactly things were going wrong.
 
 ![](img/p2/debuggingoutput.png)
 
@@ -102,6 +108,20 @@ To achieve this, I made use of an iterative control structure by using a for loo
 Each transformation is housed within its own conditional if statement, their state each governed by a corresponding user-toggleable boolean. Rather than acting like a traditional conditional control structure, they can be thought of as a series of modular processing chunks, that the audio is sequentially modulated by when each is activated.
 
 In each transformation, the result is applied to the data within the buffer at the index of the iterable’s current value, until it reaches the maximum index of the buffer. After this, the entire process repeats for a new block of audio data, following a repetition control structure.
+
+#### Flags
+A flag is a signal, commonly of a boolean type, which is used to let the program know that a specific condition has been met. 
+Throughout my program, I made use of flags at various points to allow modules to interface with each other effectively.
+
+While variables in my code, such as shouldUpdate, isIrBinary, and shouldLoadIr are all executed from different parts of the program, they all act as signals to the audio processor, allowing for different if statements to be fulfilled, enabling or bypassing certain audio algorithms.
+
+#### Stubs
+Stubs act as placeholders for methods that have not yet been written. Stubs generally contain the bare minimum amount of code to function - e.g. a declaration with no parameters, and if needed, a return statement.
+
+I made use of stubs in the early stages of coding my solution, most evidently when I was initially creating the graphics user interface. I needed a way to make sure the on-screen sliders were functioning properly, but I had not yet made any audio processing code, so I linked the parameters to the audio processor script, and made it return a unique value that would appear within the console and GUI.
+ 
+This allowed me to verify the GUI’s functionality and connectivity prior to implementing the according audio algorithms.
+
 
 
 #### Taking Legal, Social and Ethical Issues into Account
@@ -172,7 +192,7 @@ Sometimes, the software solution itself does not provide a thorough enough expla
 #### Installation Guide
 Prior to the user’s installation of the software solution, an installation guide should be present, describing all the included modules to be installed. It should additionally specify, in particular, the minimum hardware requirements and versions of operating platforms.
 
-The software solution includes a text file that provides this information. Because the solution is packaged within an installer, specific installation instructions are delegated to the installer.
+The software solution includes a pdf file that provides this information. Because the solution is packaged within an installer, specific installation instructions are delegated to the installer.
 
 #### User Manual
 A user manual should describe the functionalities of the software solution, whilst being written in such a way that it is understandable by the target audience.
@@ -203,7 +223,10 @@ My software solution provides its documentation through its included files as we
 The creation of technical documentation is a commonly found, yet essential practice in software development. Such documentation provides vital information about the inner workings of the software solution to collaborators, internal members, clients and end users. It ensures that everything can be understood and used efficiently.
 
 #### Source Code Documentation
-Within technical documentation, source code is the most important aspect, as it directly impacts the logic of the compiled program. Without access to the source code, any sources of errors found are effectively impossible to isolate and fix. As a result, the source code provides the most overall insight into the code’s functionality.
+Within technical documentation, source code is the most important aspect, as it directly impacts the logic of the compiled program. Without access to the source code, any sources of errors found are effectively impossible to isolate and fix. As a result, the source code provides the most overall insight into the program’s functionality.
+
+The full source code for my program is accessible from the [github repository](https://github.com/Haito4/ArtisianDSP/tree/master/Source), which can be reached from the help screen within the program. The source code is also available as a zip file as an asset within each release in the releases tab.
+
 
 ##### Clean Codebase
 A clean codebase serves as a good source of documentation. By neatly structuring the code within each source file, it can be more easily understood and navigated by those accessing it.
@@ -212,6 +235,9 @@ A clean codebase serves as a good source of documentation. By neatly structuring
 Comments are lines of text prefixed with a symbol that act as a note, either to oneself, or for other developers. They are used to give background information or explain the thinking behind certain implementation decisions. 
 
 Ideally, a comment should precede each different logical process, identifying what it is, and typically what it does. A common error developers make during the creation of comments is forming an exact restating of what the code does, logically. Comments should ideally convey the code’s intention in a short form, as an underlying baseline of clean code should ideally explain the logic by itself.
+
+As good programming practice, my code includes comments that follow these rules, preceding different subroutines and dividing particular sections apart from one another, improving the readability and flow of the codebase.
+
 
 ##### Intrinsic Documentation
 Intrinsic documentation is a form of internal documentation that refers to the logical use of variable names, highlighting keywords, and anything else that affects the actual code. In properly applying intrinsic documentation, the ease of navigability of the codebase will be thoroughly improved.
@@ -396,16 +422,13 @@ Documentation of tests undertaken are essential to the overall testing process. 
 For a test to be of any value, it must outline certain requirements. Testing undertaken will mirror qualities laid out in the earlier-defined functionality requirements.
 
 #### Creating Test Data
-Test data is the exact data that will be input and monitored throughout the testing process. Test data must be chosen and created according to the requirements of the test, to achieve an evaluatory output of value.
+Test data is the exact data that will be input and monitored throughout the testing process. Test data must be chosen and created according to the requirements of the test, to achieve an evaluatory output of value. At a base level, each instance of my test data exists as one of three types: audio data, GUI input, and file selection. The first dictates the initial reference that is being transformed, while the latter two determine the nature of the transformation being applied.
 
 #### Test Plans
 A test plan should identify what part of the software is being tested, and the overall approach that is taken in doing so.
 
 #### Test Results
-The test results will be an exact recording of the actual output of the test. These results will be kept, even if they fail to meet requirements, to assist in the creation of a solution to the problem, and confirm that the changes have in fact been implemented later on.
-
-#### Recommendations
-Should the results of a test differ from what is expected, a course of action to take to solve the problem should be recommended.
+The test results will be an exact recording of the actual output of the test. These results will be kept, even if they fail to meet requirements, to assist in the creation of a solution to the problem, and confirm that the changes have in fact been implemented later on. In this case of test failure, a course of action to take to solve the problem should be recommended.
 
 ### **Testing Table**
 | Test plan | Test data | Expected results | Test results | Recommendations of how to solve the problem |
