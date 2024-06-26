@@ -127,7 +127,7 @@ This allowed me to verify the GUI’s functionality and connectivity prior to im
 #### Taking Legal, Social and Ethical Issues into Account
 Throughout the generation of my code, I ensured that it always upheld the terms stated within the solution’s privacy disclosure - that it doesn’t take personal data. To guarantee this, I made sure not to include any malicious logic within the code, in addition to reviewing the safety of the code of third-party submodules that I had included. 
 
-Overall, by implementing these code generation practices, I was able to ensure that my codebase was easy to read, understand, and navigate. By employing techniques of isolated subroutines, debug statements, comments, logical variable names and correct control structures as well as taking privacy and the elegance of the solution into account, the overall quality of my code was able to be thoroughly improved.
+Overall, by implementing these code generation practices, I was able to ensure that my codebase was easy to read, understand, and navigate. By employing techniques of isolated subroutines, debug statements, comments, flags, stubs, logical variable names and correct control structures as well as taking privacy and the elegance of the solution into account, the overall quality of my code was able to be thoroughly improved.
 
 
 
