@@ -1386,3 +1386,13 @@ Then I added all the installers to a new release on the github repo
 So yeah its basically done now
 
 ----
+
+## 26/06/24
+Made files for the marking including DI files and stuff
+
+----
+
+## 27/06/24
+Made the tutorial video on how to use the plugin.
+
+![](img/log2/june/20240627.png)
